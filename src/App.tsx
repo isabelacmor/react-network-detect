@@ -4,7 +4,10 @@ import NetworkDetect from './NetworkDetect';
 class App extends React.Component {
   public render() {
     return (
-      <NetworkDetect />
+      <NetworkDetect>
+        <span>child</span>
+        <span>child 2</span>
+      </NetworkDetect>
     );
   }
 }

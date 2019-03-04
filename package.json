@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/react-inlinesvg": "^0.8.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
+    "react-inlinesvg": "^0.8.4",
     "react-scripts-ts": "3.1.0"
   },
   "scripts": {

@@ -1,5 +1,7 @@
 import * as React from 'react';
-import './NetworkDetect.css';
+
+import loadingSvg from './NetworkDetect.svg';
+import { styles } from './NetworkDetectStyles';
 
 interface INetworkDetectProps {
   loadingAnimation?: JSX.Element;
@@ -10,6 +12,8 @@ interface INetworkDetectState {
 }
 
 class NetworkDetect extends React.Component<INetworkDetectProps, INetworkDetectState> {
+  private static loadingAnimation = 
+    <div style={styles.loadingContainer}> <img src={loadingSvg}/></div>;
 
   constructor(props: INetworkDetectProps) {
     super(props);
@@ -31,8 +35,12 @@ class NetworkDetect extends React.Component<INetworkDetectProps, INetworkDetectS
 
   public render() {
     return (
-      this.state.isOffline ? <span>offline</span> : <span>online</span>
+      this.state.isOffline ? this.getLoadingAnimation() : this.props.children
     );
+  }
+
+  private getLoadingAnimation = (): JSX.Element => {
+    return this.props.loadingAnimation !== undefined ? this.props.loadingAnimation : NetworkDetect.loadingAnimation;
   }
 
   private updateNetworkState = (event: Event): void => {
